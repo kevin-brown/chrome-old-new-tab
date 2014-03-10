@@ -10,6 +10,38 @@ controllers.controller('MainController',
         show_top: false
     };
 
+    $(window).on("keydown", function (e) {
+        if (e.which == 37) { // Left arrow key
+            if (!$scope.tabs.show_top) {
+                $scope.tabs.show_top = true;
+            }
+        } else if (e.which == 39) { // Right arrow key
+            if ($scope.tabs.show_top) {
+                $scope.tabs.show_top = false;
+            }
+        } else {
+            return;
+        }
+
+        $scope.$apply();
+    });
+
+    $(window).on("mousewheel", function (e) {
+        var delta = e.originalEvent.wheelDelta;
+
+        if (delta > 0) { // Scrolling up/left
+            if (!$scope.tabs.show_top) {
+                $scope.tabs.show_top = true;
+            }
+        } else { // Scrolling down/right
+            if ($scope.tabs.show_top) {
+                $scope.tabs.show_top = false;
+            }
+        }
+
+        $scope.$apply();
+    });
+
     function savePreferences() {
         var obj = {};
 
