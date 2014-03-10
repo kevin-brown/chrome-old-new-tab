@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/common.css" type="text/css">
 </head>
 <body>
-<div ng-cloak>
-    <div class="main-container" ng-controller="MainController">
+<div ng-cloak ng-controller="MainController">
+    <div class="main-container">
         <a class="switcher left" ng-click="tabs.show_top=true"
            ng-hide="tabs.show_top">
             <i class="fa fa-angle-left"></i>
@@ -39,14 +39,29 @@
 
     <footer>
         <a class="chrome-logo">
-            <img src="chrome://favicon/https://chrome.google.com/" alt="[Chrome Logo]" />
+            <img src="chrome://favicon/https://chrome.google.com/"
+                 alt="[Chrome Logo]" />
             <span class="chrome-logo-text">chrome</span>
         </a>
-        <a class="chrome-store" href="https://chrome.google.com/webstore/category/apps">
+
+        <a class="chrome-store"
+           href="https://chrome.google.com/webstore/category/apps">
             <span class="chrome-store-text">Web Store</span>
             <img src="data:image/png;base64,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" />
         </a>
-        <span class="clear"></span>
+
+        <div class="tabs">
+            <a class="tab" ng-class="{'active': tabs.show_top}"
+               ng-click="tabs.show_top=true">
+                <div class="tab-bar"></div>
+                Most Visited
+            </a>
+            <a class="tab" ng-class="{'active': !tabs.show_top}"
+               ng-click="tabs.show_top=false">
+                <div class="tab-bar"></div>
+                Apps
+            </a>
+        </div>
     </footer>
 
 <script type="text/javascript" src="js/vendor/jquery/jquery-1.10.2.min.js"></script>

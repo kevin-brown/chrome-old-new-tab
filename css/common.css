@@ -29,6 +29,7 @@ body {
 
 .switcher {
     border-radius: 1.5em;
+    color: #999;
     cursor: pointer;
     font-size: 2em;
     padding: 0.5em;
@@ -70,38 +71,38 @@ body {
 }
 
 .app-icon a {
-    color: rgba(0,0,0,0.7);
+    color: #666;
     text-decoration: none;
 }
 
 .app-actions {
-    display:none;
+    display: none;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    background-color:rgba(186,211,218,0.8);
-    position:absolute;
-    bottom:0;
-    margin-left:5px;
-    margin-right:5px;
-    padding-top:4px;
-    padding-bottom:3px;
-    width:100%;
+    background-color: #ddd;
+    position: absolute;
+    bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-top: 4px;
+    padding-bottom: 3px;
+    width: 100%;
 }
 
 .app-actions a {
-    padding:3px;
+    padding: 3px;
 }
 
 div[app] {
-    position:relative;
+    position: relative;
 }
 
-div[app]:hover div.app-actions {
-    display:inherit;
+div[app]:hover .app-actions {
+    display: inherit;
 }
 
 .app-desc {
-    padding: 1px;
+    padding: 5px;
     display: block;
     white-space: nowrap;
     text-decoration: none;
@@ -142,7 +143,7 @@ footer {
 }
 
 .chrome-store {
-    color: #666;
+    color: #999;
     display: block;
     font-size: 16px;
     font-weight: bold;
@@ -161,6 +162,11 @@ footer {
     float: left;
     padding-top: 8px;
     padding-right: 10px;
+    -webkit-user-select: none;
+}
+
+.chrome-store:hover .chrome-store-text {
+    color: #666;
 }
 
 .chrome-logo img {
@@ -171,7 +177,41 @@ footer {
 
 .chrome-logo-text {
     color: #999;
+    cursor: default;
     font-size: 28px;
     padding-top: 10px;
     padding-left: 10px;
+    -webkit-user-select: none;
+}
+
+.tabs {
+    text-align: center;
+    width: 100%;
+}
+
+.tab {
+    color: #999;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    height: 50px;
+    padding-left: 10px;
+    padding-top: 5px;
+    text-align: left;
+    width: 100px;
+}
+
+.tab:hover, .tab.active {
+    color: #888;
+}
+
+.tab .tab-bar {
+    height: 8px;
+    background-color: #ddd;
+    margin-bottom: 6px;
+}
+
+.tab:hover .tab-bar, .tab.active .tab-bar {
+    background-color: #888;
 }
