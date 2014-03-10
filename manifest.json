@@ -1,23 +1,25 @@
 {
   "manifest_version": 2,
-  "name": "New Tab Redirect",
-  "short_name": "NTR!",
-  "description": "Allows a user to provide the URL of the page that loads in a new tab.",
+  "name": "Old New Tab",
+  "short_name": "ONT",
+  "description": "Replaces the new tab page in an attempt to replicate the old new tab page.",
   "default_locale": "en",
-  "version": "3.0",
-  "background": { 
-    "scripts" : ["js/background.js"],
-    "persistent": false
-  },
-  "options_page":"options.html",
+  "version": "0.1.0",
   "chrome_url_overrides": {
     "newtab": "main.html"
   },
-  "permissions": ["tabs", "storage", "topSites", "management", "bookmarks", "chrome://favicon/"],
+  "permissions": [
+      "tabs",
+      "storage",
+      "topSites", // Get the top sites
+      "management", // Get the list of apps
+      "bookmarks", // Get the list of bookmarks
+      "chrome://favicon/"
+  ],
   "icons": {
-    "200": "images/icon200.png",
-    "128": "images/icon128.png",
-	"19":"images/icon19.png"
+      "200": "images/icon200.png",
+      "128": "images/icon128.png",
+      "19":"images/icon19.png"
   },
   "incognito": "split",
   "minimum_chrome_version" : "22"
