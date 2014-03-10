@@ -27,6 +27,29 @@ body {
     overflow-x: hidden;
 }
 
+.switcher {
+    border-radius: 1.5em;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 0.5em;
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    width: 1em;
+}
+
+.switcher:hover {
+    background-color: #eee;
+}
+
+.switcher.left {
+    left: 1em;
+}
+
+.switcher.right {
+    right: 1em;
+}
+
 .app-icon-container {
     display: block;
     height: 200px;

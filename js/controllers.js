@@ -1,27 +1,20 @@
 'use strict';
 var controllers = angular.module('newTab.controllers', ['newTab.services']);
 
-controllers.controller('MainController', ['$scope', 'Apps', function ($scope, Apps){
-    var enable_top_key = 'ntr.enable_top',
-        enable_bookmarks_key = 'ntr.enable_bookmarks',
-        bookmarks_count_key = 'ntr.bookmark_count',
-        top_count_key = 'ntr.top_count';
+controllers.controller('MainController',
+                       ['$scope', 'Apps',
+                        function ($scope, Apps) {
+    var show_top_key = 'old_ntp.show_top';
 
-    $scope.extension_name = "New Tab Redirect!";
-    $scope.enable_bookmarks = false;
-    $scope.enable_top = false;
-    $scope.bookmarks = [];
-    $scope.show_prefs = false;
-    $scope.bookmark_count = 10;
-    $scope.top_count = 10;
+    $scope.tabs = {
+        show_top: false
+    };
 
-    $scope.save_preferences = function(){
-        $scope.show_prefs=false;
+    function savePreferences() {
         var obj = {};
-        obj[enable_bookmarks_key] = $scope.enable_bookmarks;
-        obj[enable_top_key] = $scope.enable_top;
-        obj[bookmarks_count_key] = $scope.bookmark_count;
-        obj[top_count_key] = $scope.top_count;
+
+        obj[show_top_key] = $scope.tabs.show_top;
+
         Apps.saveSetting(obj);
 
         // reload bookmarks and topSites
@@ -30,19 +23,15 @@ controllers.controller('MainController', ['$scope', 'Apps', function ($scope, Ap
     };
 
     function loadBookmarks() {
-        return Apps.getBookmarksBar($scope.bookmark_count)
+        return Apps.getBookmarksBar(12)
             .then(function (results) {
-                if($scope.enable_bookmarks){
-                    $scope.bookmarks = results;
-                }
+                $scope.bookmarks = results;
             });
     }
 
     function loadTopSites() {
         return Apps.topSites().then(function (sites) {
-            if($scope.enable_top){
-                $scope.top = sites.slice(0, $scope.top_count);
-            }
+            $scope.top = sites.slice(0, 12);
         });
     }
 
@@ -57,26 +46,16 @@ controllers.controller('MainController', ['$scope', 'Apps', function ($scope, Ap
 
     $scope.$on('UninstalledApp', loadApps);
 
+    $scope.$watch("tabs.show_top", function () {
+        savePreferences();
+    });
+
     // initial page setup
-    var querySettings = [enable_top_key, enable_bookmarks_key, bookmarks_count_key, top_count_key];
+    var querySettings = [show_top_key];
+
     Apps.getSetting(querySettings)
-        .then(function(settings){
-            angular.forEach(querySettings, function(val){
-                if(settings.hasOwnProperty(val)) {
-                    // because we expect the keys to be in format ntr.[property_name]
-                    var scopeKey = val.replace('ntr.','');
-                    $scope[scopeKey] = settings[val];
-                }
-            });
-
-            // define defaults for properties without settings (initial load) here. This helps prevent UI flickering.
-            if(angular.isUndefined(settings[enable_bookmarks_key])) {
-                $scope.enable_bookmarks = true;
-            }
-
-            if(angular.isUndefined(settings[enable_top_key])) {
-                $scope.enable_top = true;
-            }
+        .then(function(settings) {
+            $scope.tabs.show_top = settings[show_top_key];
         })
         .then(function(){
             loadApps()

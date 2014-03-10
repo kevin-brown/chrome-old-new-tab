@@ -10,12 +10,22 @@
 <body>
 <div ng-cloak>
     <div class="main-container" ng-controller="MainController">
-        <div class="container app-container">
+        <a class="switcher left" ng-click="tabs.show_top=true"
+           ng-hide="tabs.show_top">
+            <i class="fa fa-angle-left"></i>
+        </a>
+
+        <a class="switcher right" ng-click="tabs.show_top=false"
+           ng-show="tabs.show_top">
+            <i class="fa fa-angle-right"></i>
+        </a>
+
+        <div class="container app-container" ng-hide="tabs.show_top">
             <chrome-app ng-repeat="app in apps" app="app"></chrome-app>
             <span class="clear"></span>
         </div>
 
-        <div class="container top-sites-container">
+        <div class="container top-sites-container" ng-show="tabs.show_top">
             <div ng-repeat="site in top" class="app-icon">
                 <a ng-href="{{ site.url }}" ng-title="{{ site.title }}"
                    target="_self" class="app-icon-container">
