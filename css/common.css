@@ -127,3 +127,51 @@ div[app]:hover div.app-actions {
 [ng-cloak] {
     display:none;
 }
+
+footer {
+    background-color: #eee;
+    bottom: 0;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+}
+
+.chrome-logo, .chrome-logo img, .chrome-logo-text {
+    display: block;
+    float: left;
+}
+
+.chrome-store {
+    color: #666;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    float: right;
+    padding-top: 10px;
+    padding-right: 2em;
+}
+
+.chrome-store img {
+    height: 32px;
+    width: 32px;
+}
+
+.chrome-store-text {
+    display: block;
+    float: left;
+    padding-top: 8px;
+    padding-right: 10px;
+}
+
+.chrome-logo img {
+    display: block;
+    height: 50px;
+    width: 50px;
+}
+
+.chrome-logo-text {
+    color: #999;
+    font-size: 28px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
