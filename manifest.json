@@ -4,7 +4,7 @@
   "short_name": "ONT",
   "description": "Replaces the new tab page in an attempt to replicate the old new tab page.",
   "default_locale": "en",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "chrome_url_overrides": {
     "newtab": "main.html"
   },
