@@ -29,7 +29,11 @@
             <div ng-repeat="site in top" class="app-icon">
                 <a ng-href="{{ site.url }}" ng-title="{{ site.title }}"
                    target="_self" class="app-icon-container">
-                    <img ng-src="chrome://extension-icon" />
+                    <div class="site-preview">
+                        {{ site.url }}
+                        <img class="site-preview-favicon" ng-src="chrome://favicon/{{ site.url }}" />
+                    </div>
+
                     <span class="app-desc">{{ site.title }}</span>
                 </a>
             </div>

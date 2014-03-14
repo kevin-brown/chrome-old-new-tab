@@ -62,7 +62,7 @@ body {
     padding: 7px;
 }
 
-.app-icon-container img {
+.app-icon-container .app-icon-image {
     height: 150px;
     width: 150px;
 }
@@ -113,6 +113,36 @@ div[app]:hover .app-actions {
     font-size: 1.5em;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.site-preview {
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: inset 0 0 1em #999;
+    box-sizing: border-box;
+    height: 150px;
+    margin: 0 auto 16px auto;
+    overflow: hidden;
+    padding: 1em;
+    padding-top: 35%;
+    position: relative;
+    text-overflow: ellipsis;
+    width: 150px;
+}
+
+.site-preview:hover {
+    background-color: #e3e3e3;
+    border: 1px solid #999;
+    border-shadow-color: #666;
+}
+
+.site-preview-favicon {
+    bottom: 6px;
+    height: 16px;
+    left: calc(50% - 8px);
+    position: absolute;
+    width: 16px;
 }
 
 .container {
