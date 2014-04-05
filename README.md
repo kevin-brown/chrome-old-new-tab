@@ -4,7 +4,7 @@
 
 This extension is a fork of [NewTab Redirect](https://github.com/jimschubert/NewTab-Redirect).
 
-* NewTab Redirect is released under the [MIT license](http://bit.ly/mit-license).
+* NewTab Redirect is released under the [MIT license](https://github.com/jimschubert/NewTab-Redirect/blob/e35d77b583c3d762ace67694ee76ca16a27e0690/LICENSE).
 
 * AngularJS: Code is MIT Licensed. Details are available [here](https://github.com/angular/angular.js/blob/master/LICENSE)
 
